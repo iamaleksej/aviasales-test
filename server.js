@@ -17,16 +17,17 @@ app.use((req, res, next) => {
    res.header("Access-Control-Allow-Credentials", true);
    next();
 });
-
+// const user = userController.createUser();
 app.get('/', (req, res) => {
+   const user = userController.createUser();
    res.status(202)
-      .cookie('newUser', JSON.stringify(userController.newUserData), {
+      .cookie('newUser', JSON.stringify(user), {
          sameSite: 'strict',
          path: '/',
          maxAge: 1000 * 60 * 60,
          httpOnly: true,
          secure: true
-      }).send('cookie init    ===    ' + JSON.stringify(userController.newUserData))
+      }).send('cookie init    ===    ' + JSON.stringify(user))
 })
 
 app.listen(PORT, () => console.log(`server started on port ${PORT}`))
