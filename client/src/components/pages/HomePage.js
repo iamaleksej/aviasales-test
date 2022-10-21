@@ -5,14 +5,9 @@ import { useInput } from "../hooks";
 import { connect } from 'react-redux'
 import { compose } from '../../utils';
 import { withUserService } from '../hoc';
-import { Link } from "react-router-dom";
-import { createCookies } from "../../services/cookies";
 import Button from '../Button'
 import './HomePage.sass';
 import check from '../../assets/img/check.png'
-// import axios from 'axios'
-
-// axios.defaults.withCredentials = true
 
 const HomePage = ({ userService, user, onClickToChangeFinalPage }) => {
    const email = useInput('', { isEmail: true, isEmpty: true })
