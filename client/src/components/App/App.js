@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createCookies } from "../../services/cookies";
 import { actionCreateUser, actionRewriteUserToFull, actionUpdateUser } from '../../actions'
+import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux'
 import { compose } from '../../utils';
 import { withUserService } from '../hoc';
@@ -13,7 +14,7 @@ import axios from 'axios'
 axios.defaults.withCredentials = true
 
 const App = ({ userService, user }) => {
-
+   const dispatch = useDispatch();
    const [page, setPage] = useState(true)
    const onClickToChangeHomePage = () => {
       setPage(true)
@@ -23,14 +24,20 @@ const App = ({ userService, user }) => {
    }
    useEffect(() => {
       userService.getUser(user)
-      createCookies();
+      console.log('1')
    }, [])
 
    useEffect(() => {
-      if (user.shared || user.email !== null) {
-         userService.sendUpdateUser(user)
-      }
+      setTimeout(async () => {
+         await userService.userFullData
+         dispatch(actionRewriteUserToFull(userService.userFullData))
+      }, 1000)
+   }, [user.id])
 
+   useEffect(() => {
+      if (user.id !== undefined) {
+         createCookies();
+      }
    }, [user])
 
    return (

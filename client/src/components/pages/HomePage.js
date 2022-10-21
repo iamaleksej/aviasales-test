@@ -39,7 +39,7 @@ const HomePage = ({ userService, user, onClickToChangeFinalPage }) => {
    const onClickShareButton = async (link) => {
       const shareWindow = window.open(link, '_blank', 'toolbar=0,location=0,menubar=0,width=500,height=500');
 
-      dispatch(actionRewriteUserToFull(userService.userFullData))
+      // dispatch(actionRewriteUserToFull(userService.userFullData))
 
       const timer = setInterval(() => {
          if (shareWindow.closed) {
@@ -68,7 +68,7 @@ const HomePage = ({ userService, user, onClickToChangeFinalPage }) => {
 
       console.log(user)
       checkPoints()
-
+      // dispatch(actionRewriteUserToFull(userService.userFullData))
 
       // createCookies();
    }

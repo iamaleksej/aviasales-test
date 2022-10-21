@@ -1,18 +1,18 @@
 
 const db = require('../db')
-// const newUserData = {}
+const newUserData = {}
 class UserController {
 
-   // constructor() {
-   //    this.newUserData = newUserData
-   // }
+   constructor() {
+      this.newUserData = newUserData
+   }
 
    async createUser(req, res) {
       const { shared, email } = req.body
       const newPerson = await db.query(`INSERT INTO person (shared, email) values ($1, $2) RETURNING *`,
          [shared, email])
-      const newUserData = res.json(newPerson.rows[0])
-      return newUserData
+      this.newUserData = res.json(newPerson.rows[0])
+      return this.newUserData
    }
 
    async updateUser(req, res) {

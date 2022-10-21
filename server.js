@@ -2,6 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const userRouter = require('./routes/user.routes')
+const userController = require('./controller/user.controller')
+
 
 const PORT = process.env.PORT || 8080
 
@@ -18,13 +20,13 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
    res.status(202)
-      .cookie('newUser', 'value', {
+      .cookie('newUser', JSON.stringify(userController.newUserData), {
          sameSite: 'strict',
          path: '/',
          maxAge: 1000 * 60 * 60,
          httpOnly: true,
          secure: true
-      }).send('cookie init')
+      }).send('cookie init    ===    ' + JSON.stringify(userController.newUserData))
 })
 
 app.listen(PORT, () => console.log(`server started on port ${PORT}`))
