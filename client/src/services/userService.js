@@ -1,9 +1,8 @@
 const url = 'http://localhost:8080/api/user'
-const userFullData = {}
 class userService {
 
    constructor() {
-      this.userFullData = userFullData;
+      this.userFullData = {}
    }
 
    getUser = async (newData) => {

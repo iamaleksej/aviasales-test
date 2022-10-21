@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createCookies } from "../../services/cookies";
-import { actionCreateUser, actionRewriteUserToFull, actionUpdateUser } from '../../actions'
+import { actionCreateUser, actionRewriteUserToFull, actionUpdateUser } from '../../actions';
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux'
 import { compose } from '../../utils';
@@ -9,7 +9,7 @@ import Header from '../Header'
 import { HomePage, FinalPage } from '../pages'
 import './App.sass';
 import { Routes, Route } from "react-router-dom";
-import axios from 'axios'
+import axios from 'axios';
 
 axios.defaults.withCredentials = true
 
@@ -24,7 +24,6 @@ const App = ({ userService, user }) => {
    }
    useEffect(() => {
       userService.getUser(user)
-      console.log('1')
    }, [])
 
    useEffect(() => {

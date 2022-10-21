@@ -9,7 +9,7 @@ import Button from '../Button'
 import './HomePage.sass';
 import check from '../../assets/img/check.png'
 
-const HomePage = ({ userService, user, onClickToChangeFinalPage }) => {
+const HomePage = ({ user, onClickToChangeFinalPage }) => {
    const email = useInput('', { isEmail: true, isEmpty: true })
    const dispatch = useDispatch();
    const shareUrl = 'https://www.aviasales.ru'
@@ -34,7 +34,6 @@ const HomePage = ({ userService, user, onClickToChangeFinalPage }) => {
    const onClickShareButton = async (link) => {
       const shareWindow = window.open(link, '_blank', 'toolbar=0,location=0,menubar=0,width=500,height=500');
 
-      // dispatch(actionRewriteUserToFull(userService.userFullData))
 
       const timer = setInterval(() => {
          if (shareWindow.closed) {
@@ -60,12 +59,7 @@ const HomePage = ({ userService, user, onClickToChangeFinalPage }) => {
    }
 
    const submit = () => {
-
-      console.log(user)
       checkPoints()
-      // dispatch(actionRewriteUserToFull(userService.userFullData))
-
-      // createCookies();
    }
 
 
@@ -126,12 +120,10 @@ const HomePage = ({ userService, user, onClickToChangeFinalPage }) => {
                   </div>
                </div>
                {!isDisabledEmail &&
-                  // <Link to=''>
                   <Button className='btn'
                      type='submit'
                      onClickEvent={submit}
                      titleBtn={'Отправить'} />
-                  // </Link>
                }
             </div>
          </div>

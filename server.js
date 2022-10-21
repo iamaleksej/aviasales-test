@@ -17,6 +17,7 @@ app.use((req, res, next) => {
    res.header("Access-Control-Allow-Credentials", true);
    next();
 });
+
 const user = userController.createUser();
 app.get('/', (req, res) => {
    res.status(202)
