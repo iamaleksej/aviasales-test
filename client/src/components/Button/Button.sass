@@ -1,0 +1,67 @@
+$mobile: 767px
+
+.btn
+   font-family: 'Shnobel'
+   font-style: normal
+   width: 230px
+   height: 70px
+   font-size: 40px
+   background: #CD718E
+   display: flex
+   justify-content: center
+   align-items: center
+   cursor: pointer
+   border: 2px solid #fff
+   color: #fff
+   border-radius: 50px
+   margin-top: 30px
+   @media only screen and (max-width: $mobile)
+      width: 260px
+      font-size: 30px
+      height: 60px
+
+   &:hover
+      background: #fff
+      color: #7f4156
+   &:active
+      background: #7f4156
+      color: #fff
+      border-color: #7f4156
+
+.point
+   &__icon
+      width: 53px
+      height: 53px
+      border-radius: 50%
+      cursor: pointer
+      border: 0
+      &[disabled]
+         cursor: default
+   &__icon-vk
+      background: url('../../assets/img/vk.png')
+      &[disabled]:hover
+         background: url('../../assets/img/vk.png')
+      &:hover
+         background: url('../../assets/img/iconHover.png') no-repeat center
+         background-color: #45668E!important
+   &__icon-fb
+      background: url('../../assets/img/facebook.png')
+      &[disabled]:hover
+         background: url('../../assets/img/facebook.png')
+      &:hover
+         background: url('../../assets/img/iconHover.png') no-repeat center
+         background-color: #3B5998!important
+   &__icon-tw
+      background: url('../../assets/img/tw.png')
+      &[disabled]:hover
+         background: url('../../assets/img/tw.png')
+      &:hover
+         background: url('../../assets/img/iconHover.png') no-repeat center
+         background-color: #00ACED!important
+   &__icon-ok
+      background: url('../../assets/img/ok.png')
+      &[disabled]:hover
+         background: url('../../assets/img/ok.png')
+      &:hover
+         background: url('../../assets/img/iconHover.png') no-repeat center
+         background-color: #EB722E!important
